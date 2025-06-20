@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Merlion SpaceAways</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <!-- CSS moved to style.css -->
+</head>
+<body>
+  <div class="stars"></div>
+  <nav>
+    <h1>Merlion SpaceAways</h1>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#packages">Packages</a></li>
+      <li><a href="#testimonials">Testimonials</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <header class="hero" id="home">
+    <div>
+      <h2>Experience the future</h2>
+      <p>Merlion SpaceAways offers cutting-edge, high-tech space journeys—where every voyage transcends imagination.</p>
+      <button class="btn-neon" onclick="document.getElementById('packages').scrollIntoView({behavior:'smooth'})">Explore Now</button>
+      <section id="countdown" style="margin: 2.5rem 0 0 0; text-align: center;">
+        <h3 style="margin-bottom:0.5rem;">Countdown to First Space Flight</h3>
+        <div id="timer" style="font-size:2rem; color:var(--accent-cyan);"></div>
+      </section>
+    </div>
+  </header>
+
+  <section id="about">
+    <h3>About Merlion SpaceAways</h3>
+    <p>At Merlion SpaceAways, we harness next-gen spacecraft and AI-driven mission planning to deliver safe, awe-inspiring space experiences. Join us at the frontier of interplanetary exploration.</p>
+  </section>
+
+  <section id="packages">
+    <h3>Our Futuristic Packages</h3>
+    <div class="packages">
+      <div class="package-card">
+        <h4>Neon Sub-Orbital Burst</h4>
+        <p>Experience zero gravity and the breathtaking curvature of Earth on our rapid sub-orbital ascent.</p>
+        <button class="btn-neon">Reserve</button>
+      </div>
+      <div class="package-card">
+        <h4>Lunar Circuit Odyssey</h4>
+        <p>Embark on a week-long AI-optimized orbit around the Moon, capturing the sublime Earthrise.</p>
+        <button class="btn-neon">Reserve</button>
+      </div>
+      <div class="package-card">
+        <h4>Quantum Mars Flyby</h4>
+        <p>Join an exclusive multi-month mission leveraging quantum navigation for unparalleled Martian vistas.</p>
+        <button class="btn-neon">Join Waitlist</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="testimonials">
+    <h3>What Pioneers Say</h3>
+    <div class="testimonials">
+      <div class="testimonial">
+        <p>“Merlion’s Neon Burst was a symphony of light and wonder—truly the pinnacle of tech-driven exploration.”</p>
+        <span>— Jun Wei Tan, Singapore</span>
+      </div>
+      <div class="testimonial">
+        <p>“The Lunar Circuit felt like a sci-fi epic. The AI crew support was seamless and deeply reassuring.”</p>
+        <span>— Elena Petrova, Russia</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h3>Engage Our AI Concierge</h3>
+    <form class="contact-form" action="#" method="POST">
+      <input type="text" name="name" placeholder="Name" required />
+      <input type="email" name="email" placeholder="Email" required />
+      <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+      <button class="btn-neon" type="submit">Send Request</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Merlion SpaceAways. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    // Countdown Timer Script
+    const countdownDate = new Date('June 20, 2030 00:00:00').getTime();
+    const timerElement = document.getElementById('timer');
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const distance = countdownDate - now;
+      if (distance < 0) {
+        timerElement.innerHTML = "🚀 The journey has begun!";
+        clearInterval(interval);
+        return;
+      }
+      const years = Math.floor(distance / (1000 * 60 * 60 * 24 * 365));
+      const days = Math.floor((distance % (1000 * 60 * 60 * 24 * 365)) / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+      timerElement.innerHTML = `${years}y ${days}d ${hours}h ${minutes}m ${seconds}s`;
+    }
+    updateCountdown();
+    const interval = setInterval(updateCountdown, 1000);
+  </script>
+</body>
+</html>
